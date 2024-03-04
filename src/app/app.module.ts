@@ -4,13 +4,13 @@ import { NbThemeModule } from '@nebular/theme';
 import { NbAuthModule } from '@nebular/auth';
 import { AppRoutingModule } from './app-routing/app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
+import { LoginComponent } from './components/login/login.component';
+import { SignupComponent } from './components/signup/signup.component';
 import { FormsModule } from '@angular/forms';
 import { NbCardModule } from '@nebular/theme';
 import { NbLayoutModule } from '@nebular/theme';
 import { HttpClientModule } from '@angular/common/http';
-import { MainComponent } from './main/main.component';
+import { MainComponent } from './components/main/main.component';
 
 
 @NgModule({  
