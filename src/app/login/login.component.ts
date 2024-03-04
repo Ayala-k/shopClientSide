@@ -26,7 +26,7 @@ export class LoginComponent {
         this.authService.setToken(token);
 
         // Redirect to dashboard or desired route on successful login
-        this.router.navigateByUrl('/dashbord');
+        this.router.navigateByUrl('/main');
       },
       error => {
         // Handle login error and display error message

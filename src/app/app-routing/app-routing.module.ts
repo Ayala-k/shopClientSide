@@ -3,7 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 //import { NbAuthComponent, NbLoginComponent, NbRegisterComponent } from '@nebular/auth';
 import { LoginComponent } from '../login/login.component';
 import { SignupComponent } from '../signup/signup.component';
-import { Try2Component } from '../try2/try2.component';
+import { MainComponent } from '../main/main.component';
 
 const routes: Routes = [
   // {
@@ -21,8 +21,8 @@ const routes: Routes = [
     component:SignupComponent
   },
   { 
-    path: 'dashbord',
-    component:Try2Component,
+    path: 'main',
+    component:MainComponent,
   },
 ];
 
