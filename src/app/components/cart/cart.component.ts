@@ -8,27 +8,37 @@ import ICartItem from '../../models/cartItem';
   styleUrl: './cart.component.css'
 })
 
-export class CartComponent implements OnInit{
-  cartItems!:ICartItem[];
+export class CartComponent implements OnInit {
+  cartItems!: ICartItem[];
+  totalPrice: number = 0;
 
   constructor(private cartService: CartService) { }
 
   ngOnInit(): void {
     console.log("cart init");
-    
+
     this.cartService.getCart().subscribe(
       (response: any) => {
-        //console.log(response);
-        this.cartItems=response.items;
-        console.log(this.cartItems);
-        console.log("det",this.cartItems[0].itemDetails);
+        this.cartItems = response;
+        this.calculateTotalPrice()
+
       },
       error => {
         console.log(error.error);
-        
-        //this.errorMessage = error.error || 'An error occurred while logging in.';
       }
-    ); 
+    );
+  }
+
+  calculateTotalPrice() {
+    let sum = 0;
+    this.cartItems.forEach(item => {
+      sum += item.amount * item.price;
+    })
+    this.totalPrice = sum
+  }
+
+  buyItems(){
+    
   }
 
 }
