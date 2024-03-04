@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from '../../services/items.service';
+import IItem from '../../models/item';
 
 @Component({
   selector: 'app-main',
@@ -8,21 +9,18 @@ import { ItemsService } from '../../services/items.service';
 })
 export class MainComponent implements OnInit {
   errorMessage!: string;
+  items!:IItem[];
+  isLoaded=false;
 
   constructor(private itemsService: ItemsService) { }
 
   ngOnInit(): void {
     this.itemsService.getItems().subscribe(
       (response: any) => {
-        // Save token to browser cookies
-        //const token = response.token;
-
-        console.log(response);
+        this.items=response;
+        this.isLoaded=true;
       },
       error => {
-        // Handle login error and display error message
-        console.log(error);
-
         this.errorMessage = error.error || 'An error occurred while logging in.';
       }
     ); 

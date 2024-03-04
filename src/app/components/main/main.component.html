@@ -1,2 +1,5 @@
 <p>main works!</p>
+<div *ngIf="isLoaded">
+    <app-items [items]="items"></app-items>
+</div>
 <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>

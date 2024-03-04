@@ -11,6 +11,7 @@ import { NbCardModule } from '@nebular/theme';
 import { NbLayoutModule } from '@nebular/theme';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './components/main/main.component';
+import { ItemsComponent } from './components/items/items.component';
 
 
 @NgModule({  
@@ -18,7 +19,8 @@ import { MainComponent } from './components/main/main.component';
     AppComponent,
     LoginComponent,
     SignupComponent,
-    MainComponent
+    MainComponent,
+    ItemsComponent
   ], 
   imports: [
     BrowserModule,
