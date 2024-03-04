@@ -12,6 +12,7 @@ import { NbLayoutModule } from '@nebular/theme';
 import { HttpClientModule } from '@angular/common/http';
 import { MainComponent } from './components/main/main.component';
 import { ItemsComponent } from './components/items/items.component';
+import { ItemComponent } from './components/item/item.component';
 
 
 @NgModule({  
@@ -20,7 +21,8 @@ import { ItemsComponent } from './components/items/items.component';
     LoginComponent,
     SignupComponent,
     MainComponent,
-    ItemsComponent
+    ItemsComponent,
+    ItemComponent
   ], 
   imports: [
     BrowserModule,

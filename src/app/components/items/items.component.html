@@ -1,3 +1,5 @@
-<p>items works!</p>
-<p *ngFor="let item of items">{{item.name}}</p>
- 
+<p class="text-primary">items works!</p>
+<!-- <p *ngFor="let item of items">{{item.name}}</p> -->
+<div class="row justify-content-evenly w-75 mx-auto">
+ <app-item *ngFor="let item of items" [item]="item" class="col-3 p-2"></app-item>
+</div>
