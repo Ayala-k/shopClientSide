@@ -37,8 +37,14 @@ export class CartComponent implements OnInit {
     this.totalPrice = sum
   }
 
-  buyItems(){
-    
+  createOrder(){
+    this.cartService.createOrder().subscribe(
+      (response: any) => {
+        console.log(response);
+      },
+      error => {
+        console.log(error.error);
+      }
+    );
   }
-
 }

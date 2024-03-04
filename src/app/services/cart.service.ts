@@ -26,4 +26,13 @@ export class CartService {
     })
     return this.http.get<any>('https://localhost:7073/api/Cart', { headers })
   }
+
+  createOrder(){
+    const token = this.cookieService.get('token');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+    return this.http.post<any>('https://localhost:7073/api/Order',null, { headers })
+  }
 }
