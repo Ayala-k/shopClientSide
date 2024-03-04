@@ -1,5 +1,8 @@
 <p>main works!</p>
-<div *ngIf="isLoaded">
-    <app-items [items]="items"></app-items>
+<div class="row">
+    <div *ngIf="isLoaded" class="col-7">
+        <app-items [items]="items"></app-items>
+    </div>
+    <app-cart class="col-4"></app-cart>
 </div>
 <div *ngIf="errorMessage" class="alert alert-danger">{{ errorMessage }}</div>

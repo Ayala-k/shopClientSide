@@ -11,16 +11,19 @@ export class CartService {
 
   addToCart(itemId: number) {
     const token = this.cookieService.get('token');
-
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
       'Authorization': `Bearer ${token}`
     })
-
-    // const body = { itemId }
-    console.log(itemId, "in ser");
-
-    //return this.http.get<IItem[]>('https://localhost:7073/api/Items', { headers });
     return this.http.post<any>('https://localhost:7073/api/Cart', itemId, { headers })
+  }
+
+  getCart(){
+    const token = this.cookieService.get('token');
+    const headers = new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': `Bearer ${token}`
+    })
+    return this.http.get<any>('https://localhost:7073/api/Cart', { headers })
   }
 }
