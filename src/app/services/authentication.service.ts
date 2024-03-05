@@ -21,7 +21,6 @@ export class AuthenticationService {
 
   setToken(token: string) {
     // Save token to browser cookies
-    console.log(token);
     
     this.cookieService.set('token', token);
   }

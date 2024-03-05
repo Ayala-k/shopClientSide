@@ -16,7 +16,8 @@ import { ItemComponent } from './components/item/item.component';
 import { CartComponent } from './components/cart/cart.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({  
   declarations: [
@@ -37,7 +38,10 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
     FormsModule ,
     NbCardModule,
     NbLayoutModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    ToastrModule.forRoot()
+
   ],
   providers: [
     provideClientHydration(),
