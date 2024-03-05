@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { CartService } from '../../services/cart.service';
 import ICartItem from '../../models/cartItem';
 import { Subscription } from 'rxjs';
@@ -14,12 +14,13 @@ import { ToastrService } from 'ngx-toastr';
   //styles
 })
 
-export class CartComponent implements OnInit {
+export class CartComponent implements OnInit, OnDestroy {
   cartItems!: ICartItem[];
   totalPrice: number = 0;
   private cartSubscription!: Subscription;
 
   constructor(private cartService: CartService, private mainService: MainService, private toastr: ToastrService) { }
+
 
   ngOnInit(): void {
     this.getCart();
@@ -28,6 +29,9 @@ export class CartComponent implements OnInit {
     });
   }
 
+  ngOnDestroy(): void {
+    this.cartSubscription.unsubscribe();
+  }
 
   getCart() {
     this.cartService.getCart().subscribe(
@@ -54,11 +58,10 @@ export class CartComponent implements OnInit {
 
       },
       error => {
-        console.log(error.error,"toast");
+        console.log(error.error, "toast");
         this.toastr.error('Error while creating order, please try again', 'Error');
 
-      } 
+      }
     );
   }
-
 }
