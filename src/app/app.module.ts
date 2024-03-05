@@ -14,6 +14,8 @@ import { MainComponent } from './components/main/main.component';
 import { ItemsComponent } from './components/items/items.component';
 import { ItemComponent } from './components/item/item.component';
 import { CartComponent } from './components/cart/cart.component';
+import { CartItemComponent } from './components/cart-item/cart-item.component';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 
 
 @NgModule({  
@@ -24,7 +26,8 @@ import { CartComponent } from './components/cart/cart.component';
     MainComponent,
     ItemsComponent,
     ItemComponent,
-    CartComponent
+    CartComponent,
+    CartItemComponent
   ], 
   imports: [
     BrowserModule,
@@ -38,6 +41,7 @@ import { CartComponent } from './components/cart/cart.component';
   ],
   providers: [
     provideClientHydration(),
+    provideAnimationsAsync(),
   ], 
   bootstrap: [AppComponent]
 })

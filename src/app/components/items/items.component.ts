@@ -6,10 +6,6 @@ import IItem from '../../models/item';
   templateUrl: './items.component.html',
   styleUrl: './items.component.css'
 })
-export class ItemsComponent implements OnInit{
+export class ItemsComponent{
   @Input() items: IItem[]=[];
-
-  ngOnInit(): void {
-    console.log("items:",this.items);
-  }
 }

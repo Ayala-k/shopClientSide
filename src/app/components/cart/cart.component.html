@@ -1,7 +1,8 @@
 <p>cart works!</p>
 <p>carttttttttttttttttttt</p>
-<p *ngFor="let item of cartItems">
+<!-- <p *ngFor="let item of cartItems">
     name: {{item.name}} - amount: {{item.amount}}
-</p>
+</p> -->
+<app-cart-item *ngFor="let item of cartItems" [cartItem]="item"></app-cart-item>
 <p>total price: {{totalPrice}}</p>
 <button (click)="createOrder()">buy now</button>
