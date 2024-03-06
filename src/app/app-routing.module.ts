@@ -4,6 +4,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { LoginComponent } from './components/login/login.component';
 import { SignupComponent } from './components/signup/signup.component';
 import { MainComponent } from './components/main/main.component';
+import { ItemsResolverService } from './services/items-resolver.service';
 
 const routes: Routes = [
   // {
@@ -23,6 +24,7 @@ const routes: Routes = [
   { 
     path: 'main',
     component:MainComponent,
+    resolve: { items: ItemsResolverService }
   },
 ];
 

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ItemsService } from '../../services/items.service';
 import IItem from '../../models/item';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-main',
@@ -9,20 +10,16 @@ import IItem from '../../models/item';
 })
 export class MainComponent implements OnInit {
   errorMessage!: string;
-  items!:IItem[];
-  isLoaded=false;
+  items!: IItem[];
+  isLoaded = false;
 
-  constructor(private itemsService: ItemsService) { }
+  constructor(private route: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.itemsService.getItems().subscribe(
-      (response: any) => {
-        this.items=response;
-        this.isLoaded=true;
-      },
-      error => {
-        this.errorMessage = error.error || 'An error occurred while logging in.';
-      }
-    ); 
+    this.route.data.subscribe((data) => {
+      console.log("after res", data);
+      this.items = data['items'];
+      this.isLoaded = true;
+    });
   }
 }
